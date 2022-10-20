@@ -36,3 +36,6 @@ class Bouquet(models.Model):
         verbose_name = 'Букет'
         verbose_name_plural = 'Букеты'
 
+
+
+
