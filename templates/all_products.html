@@ -1,0 +1,93 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'viewall/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'viewall/css/adaptive.css' %}">
+    <link rel="stylesheet" href="{% static 'viewall/css/search.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+{% endblock %}
+
+{% block title %}
+    <title>View all bouquets</title>
+{% endblock %}
+
+
+{% block content %}
+    <body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="container-fluid">
+                <div class="inner_content">
+                    <div class="logo">
+                        <a href="/" class="name">Flower Go</a>
+                    </div>
+                    <div class="search">
+                        <input type="text" class="search-field" placeholder="Search flowers...">
+                        <div class="search-btn">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_114_108)">
+                                    <path d="M12.7011 3.92782C14.3858 3.92628 16.0332 4.42447 17.4348 5.35935C18.8364 6.29424 19.9292 7.62382 20.575 9.17991C21.2208 10.736 21.3906 12.4486 21.0628 14.1012C20.7351 15.7538 19.9246 17.2721 18.7338 18.4639C17.543 19.6558 16.0255 20.4677 14.3732 20.7969C12.721 21.1262 11.0081 20.958 9.45147 20.3136C7.8948 19.6692 6.56422 18.5776 5.62805 17.1769C4.69188 15.7762 4.19219 14.1293 4.19219 12.4445C4.20241 10.1902 5.10191 8.03107 6.69521 6.43632C8.2885 4.84157 10.4468 3.94009 12.7011 3.92782ZM12.7011 2.33337C10.7013 2.33337 8.74641 2.92638 7.08365 4.0374C5.42089 5.14843 4.12492 6.72757 3.35963 8.57513C2.59435 10.4227 2.39411 12.4557 2.78425 14.4171C3.17439 16.3784 4.13738 18.1801 5.55145 19.5941C6.96551 21.0082 8.76714 21.9712 10.7285 22.3613C12.6899 22.7515 14.7229 22.5512 16.5704 21.7859C18.418 21.0206 19.9971 19.7247 21.1082 18.0619C22.2192 16.3992 22.8122 14.4443 22.8122 12.4445C22.8122 9.76285 21.7469 7.19105 19.8507 5.29485C17.9545 3.39865 15.3827 2.33337 12.7011 2.33337Z" fill="white"/>
+                                    <path d="M27.2222 25.8922L21.49 20.1211L20.3856 21.2178L26.1178 26.9889C26.1898 27.0614 26.2754 27.119 26.3697 27.1585C26.4639 27.1979 26.5651 27.2184 26.6673 27.2187C26.7695 27.2191 26.8707 27.1993 26.9653 27.1606C27.0598 27.1218 27.1458 27.0648 27.2183 26.9928C27.2909 26.9208 27.3485 26.8352 27.3879 26.7409C27.4274 26.6466 27.4479 26.5455 27.4482 26.4433C27.4486 26.3411 27.4288 26.2398 27.39 26.1453C27.3513 26.0507 27.2942 25.9647 27.2222 25.8922Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_114_108">
+                                        <rect width="28" height="28" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <section id="products">
+                <div class="container-fluid">
+                    <div class="inner_content">
+                        <div class="block-title">
+                            <h1 class="title">Colorful New Arrivals</h1>
+                        </div>
+                         <div class="row">
+                            {% for bouquet in bouquets %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card border-0">
+                                        <div class="product-img">
+                                            <img src="{{ bouquet.image.url }}" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <h1 class="title">{{ bouquet.title }}</h1>
+                                            <h1 class="price">{{ bouquet.price }}₽</h1>
+                                        </div>
+                                        <div class="stock">
+                                            {% if bouquet.in_stock %}
+                                                <p class="in-stock">in stock</p>
+                                            {% else %}
+                                                <p class="not-available">not available</p>
+                                            {% endif %}
+                                            <a href="{% url 'detail' bouquet.id %}" class="buy-btn">Buy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    </body>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+    <script src="{% static 'viewall/js/main.js' %}"></script>
+    <script src="{% static 'viewall/js/search.js' %}"></script>
+{% endblock %}
+

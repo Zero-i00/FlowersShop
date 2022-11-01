@@ -1,20 +1,27 @@
-from django.contrib.auth import get_user_model
-from django.shortcuts import redirect, render
-from django.views.generic import FormView
+from django.db.models import Sum
+from django.shortcuts import redirect
+from django.views.generic import FormView, ListView
 from core.forms import ContactForm
+from core.models import Bouquet
 from core.services.send_telegram_message import send_telegram_message
 from django.core import serializers
 from django.http.response import JsonResponse
 
 
-class HomeView(FormView):
-    form_class = ContactForm
-    template_name = 'home.html'
+class HomeView(ListView):
+    model = Bouquet
     success_url = '/'
+    template_name = 'home.html'
+    context_object_name = 'bouquets'
 
-    def form_valid(self, form):
-        send_telegram_message(form.data['full_name'], form.data['email'], form.data['phone'])
-        return redirect(self.get_success_url())
+    def get_context_data(self, *, objects_list=None, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['quantity'] = Bouquet.objects.annotate(quantity_sum=Sum('quantity')).order_by('-quantity_sum').first()
+        return context
+
+    # def get_queryset(self):
+    #     return Bouquet.objects.filter(in_stock=True)
+
 
 
 # def user_info_list(request):

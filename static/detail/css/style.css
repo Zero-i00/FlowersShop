@@ -1,0 +1,150 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins';
+    background-size: cover;
+}
+
+img {
+    width: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner_content {
+    margin: 0 12%;
+}
+
+#header .logo {
+    margin: 5% 0;
+}
+
+#header .logo .name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    /* identical to box height */
+
+    color: #171616;
+}
+
+#main .inner_content {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#main .inner_content .info,
+#main .inner_content .product-image,
+#main .inner_content .ingredients {
+    width: calc(100%/3);
+    height: 30vh;
+}
+
+#main .inner_content .info {
+    margin: 8% 0;
+}
+
+#main .inner_content .ingredients {
+    margin: 15% 0;
+}
+
+#main .inner_content .info .title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 96px;
+
+    color: #171616;
+}
+
+#main .inner_content .info .price {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 72px;
+    /* identical to box height */
+
+
+    color: #171616;
+}
+
+#main .inner_content .warning {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 15% 0;
+    color: #515151;
+}
+
+#main .inner_content .ingredients .description {
+   font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /*margin: 10% 0;*/
+    color: #515151;
+}
+
+#main .inner_content .info .order-btn {
+    background: #171616;
+    color: #EFF7F5;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    padding: 5% 30%;
+}
+
+#main .inner_content .product-image {
+    /*max-height: 80%;*/
+    margin: 0 10%;
+}
+
+.card, .image{
+    width: 440px;
+    border-radius: 2%!important;
+}
+
+#main .inner_content .ingredients .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+
+
+    color: #171616;
+}
+
+#main .inner_content .ingredients .items {
+    margin: 0 5%;
+}
+
+#main .inner_content .ingredients .items .item {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+
+    color: #000000;
+}
+
+
+
+

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prompt:300,400,500,600,700,800,900&display=swap');
 
 *, *::after, *::before {
     padding: 0;
@@ -17,7 +18,6 @@ ul, ol, li {
 
 html, body {
     height: 100%;
-
     font-family: 'Poppins';
 }
 
@@ -27,12 +27,18 @@ html, body {
     flex-direction: column;
 }
 
+.inner_content {
+    margin: 0 15%;
+}
+
 #header {
     background: #004F44;
+}
+
+#header .inner_content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5%;
 }
 
 #header .navigations nav .top-menu {
@@ -41,16 +47,20 @@ html, body {
 
 #header .navigations nav .top-menu li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 #header .navigations nav .top-menu li a {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 21px;
     letter-spacing: 0.3px;
     color: #FFFFFF;
+}
+
+#header .inner_content .logo {
+    margin-right: 15%;
 }
 
 #header .tools .search_icon {
@@ -59,22 +69,402 @@ html, body {
 
 #main {
     flex: 1 1 auto;
+}
+
+#main #new-products {
     background: #004F44;
 }
 
-#main #cover .inner_content {
+#main #new-products .inner_content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+#main #new-products .inner_content .get-start .title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 72px;
+    /* or 112% */
+
+    letter-spacing: 1.5px;
+
+    color: #EFF7F5;
+}
+
+#main #new-products .inner_content .get-start .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    /* or 175% */
+
+    letter-spacing: 0.3px;
+    margin: 5% 0;
+    color: #EFF7F5;
+}
+
+#main #new-products .inner_content .get-start .navigation-buttons {
+    display: flex;
     justify-content: space-between;
 }
 
-#main #cover .inner_content .shop_landing {
+#main #new-products .inner_content .get-start .start-search {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    padding: 20px 10%;
+    letter-spacing: 0.2px;
+    background: #FFFFFF;
+    color: #004F44;
+}
+
+#main #new-products .inner_content .get-start .start-design {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    margin-right: 5%;
+    padding: 20px 40px;
+    letter-spacing: 0.2px;
+    background: #004F44;
+    color: #FFFFFF;
+}
+
+#main #new-products .inner_content .new-orders {
+    width: 100%;
+    margin: 5% 1%;
+    display: flex;
+    justify-content: right;
+}
+
+#main #new-products .inner_content .new-orders .mini-cards {
+    margin: 0 1%;
+}
+
+#main #new-products .inner_content .new-orders .mini-cards .mini-card {
+    position: relative;
+    margin: 8% 0;
+    width: 222.82px;
+    height: 257.41px;
+    overflow: hidden;
+}
+
+#main #new-products .inner_content .new-orders .mini-cards .mini-card img,
+#main #new-products .inner_content .new-orders .big-card .card-designer img {
+    max-width: none;
+    min-width: auto;
+    min-height: auto;
+    height: 100%;
+    position: absolute;
+}
+
+#main #new-products .inner_content .new-orders .mini-cards .mini-card .alert {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 1px;
+    background: #004F44;
+    color: #FFFFFF;
+    border-radius: 0;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer {
+    position: relative;
+    width: 380px;
+    height: 534px;
+    margin: 4.5% 0;
+    background: #FFFFFF;
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer .blacker_blur {
+    bottom: 0;
+    /*background: linear-gradient(to top, black -15%, transparent 90%);*/
+    background: linear-gradient(178.62deg, rgba(46, 64, 61, 0) 25.35%, #234A45 91.06%);;
+    opacity: 0.8;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer .alert {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 1px;
+    background: #004F44;
+    color: #FFFFFF;
+    border-radius: 0;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;;
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer .title {
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    bottom: 30%;
+    left: 5%;
+    color: #EFF7F5;
+
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer .description {
+    position: absolute;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    bottom: 20%;
+    left: 5%;
+    color: #EFF7F5;
+
+
+}
+
+#main #new-products .inner_content .new-orders .big-card .card-designer .read-more-btn {
+    position: absolute;
+    background: #FFFFFF;
+    color: #004F44;
+    bottom: 5%;
+    left: 5%;
+    padding: 5% 35%;
+
+}
+
+#main #offers {
+    background: #FFFFFF;
+}
+
+#main #offers .inner_content .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+#main #offers .inner_content .header .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    /* identical to box height */
+
+    letter-spacing: 0.5px;
+
+    color: #004F44;
+}
+
+#main #offers .inner_content .header .view-all {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.5px;
+
+    color: #004F44;
+}
+
+#main #designer {
+    background-size: 100%;
+    background-repeat:no-repeat;
+    object-fit: contain;
+    padding: 20% 5%;
+}
+
+#main #designer .inner_content .header {
+    display: flex;
+    align-items: center;
+    margin: 5% 0;
+}
+
+#main #designer .inner_content .header .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    /* identical to box height */
+
+    letter-spacing: 0.5px;
+
+    color: #171616;
+}
+
+#main #designer .inner_content .get-start {
+    /*margin: 20% 0;*/
     width: 50%;
 }
 
-#main #cover .inner_content .novelties {
-    width: 50%;
+#main #designer .inner_content .get-start .title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 90px;
+
+    color: #171616;
 }
+
+#main #designer .inner_content .get-start .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 34px;
+    width: 80%;
+    color: #515151;
+    margin: 10% 0;
+}
+
+#main #designer .inner_content .get-start .get-start-btn {
+    background: #171616;
+    color: #FFFFFF;
+    font-size: 22px;
+    padding: 20px 30%;
+    margin: 20% 0;
+}
+
 #footer {
-    background: aqua;
+    background: #FFFFFF;
+}
+
+#footer #contact .inner_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer #contact .inner_content .contact-card {
+    width: 100%;
+    padding: 10% 5%;
+    background-size: 100%;
+    background-repeat:no-repeat;
+    object-fit: contain;
+}
+
+#footer #contact .inner_content .contact-card .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 53px;
+    /* identical to box height */
+
+    letter-spacing: 0.3px;
+
+    color: #9C6955;
+}
+
+#footer #contact .inner_content .contact-card .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+
+    color: #9C6955;
+}
+
+
+#footer #contact .inner_content .contact-card .web-contact .footer-menu li {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+#footer #contact .inner_content .contact-card .web-contact .footer-menu li p {
+    margin: 0 3%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.3px;
+
+    color: #9C6955;
+}
+
+#footer #visit-us {
+    margin: 5% 0;
+}
+
+#footer #visit-us .inner_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer #visit-us .inner_content .location-card {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#footer #visit-us .inner_content .location-card .info {
+    position: relative;
+    width: 50%;
+    background: #FFFFFF;
+    padding: 2% 3%;
+}
+
+#footer #visit-us .inner_content .location-card .info .get-directions {
+    position: absolute;
+    background: #004F44;
+    padding: 2% 8%;
+    top: 0;
+    right: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    letter-spacing: 1.3px;
+
+    color: #EFF7F5;
+}
+
+#footer #visit-us .inner_content .location-card .info .location-info h1 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.3px;
+
+    color: #0A1E1B;
+}
+
+#footer #visit-us .inner_content .location-card .info .location-info {
+    width: 70%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    /* or 162% */
+
+    letter-spacing: 0.5px;
+
+    color: #666666;
 }
