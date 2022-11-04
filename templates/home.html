@@ -25,10 +25,10 @@
                     <div class="navigations">
                         <nav>
                             <ul class="top-menu">
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">F.A.Q</a></li>
+                                <li><a href="/">Shop</a></li>
+                                <li><a href="#offers">Products</a></li>
+                                <li><a href="#designer">Design</a></li>
+                                <li><a href="#footer">F.A.Q</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -123,19 +123,23 @@
                           <div id="carousel">
                             <div id="content">
                                 {% for bouquet in bouquets %}
-                                    <div class="item">
-                                        <img src="{{ bouquet.image.url }}" alt="">
-                                        <div class="info">
-                                            <h1 class="title">{{ bouquet.title }}</h1>
-                                            <h1 class="price">{{ bouquet.price }}₽</h1>
-                                        </div>
-                                        <div class="stock">
-                                            {% if bouquet.in_stock %}
-                                                <p class="in-stock">in stock</p>
-                                            {% else %}
-                                                <p class="not-available">not available</p>
-                                            {% endif %}
-                                            <a href="{% url 'detail' bouquet.id %}" class="buy-btn">Buy</a>
+                                    <div class="item" id="search-item">
+                                        <div class="search-card">
+                                            <div class="product-img">
+                                                <img src="{{ bouquet.image.url }}" alt="">
+                                            </div>
+                                            <div class="info">
+                                                <h1 class="title">{{ bouquet.title }}</h1>
+                                                <h1 class="price">{{ bouquet.price }}₽</h1>
+                                            </div>
+                                            <div class="stock">
+                                                {% if bouquet.in_stock %}
+                                                    <p class="in-stock">in stock</p>
+                                                {% else %}
+                                                    <p class="not-available">not available</p>
+                                                {% endif %}
+                                                <a href="{% url 'detail' bouquet.id %}" class="buy-btn">Buy</a>
+                                            </div>
                                         </div>
                                     </div>
                                 {% endfor %}
@@ -163,7 +167,7 @@
                           </button>
                         </div>
                     <div class="search">
-                        <input type="text" class="search-field" placeholder="Search flowers...">
+                        <input type="text" class="search-field" id="search-field-input" placeholder="Search flowers...">
                         <div class="search-btn">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_114_108)">

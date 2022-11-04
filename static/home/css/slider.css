@@ -52,12 +52,21 @@
 .item {
     max-width: 280px;
     max-height: 475px;
+
+}
+
+.item .product-img {
+    width: 280px;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .item img {
-    width: 280px;
-    height: 70%;
-
+    height: 100%;
+    object-fit: cover;
 }
 
 .item .info {

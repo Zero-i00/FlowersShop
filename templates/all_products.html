@@ -25,7 +25,7 @@
                         <a href="/" class="name">Flower Go</a>
                     </div>
                     <div class="search">
-                        <input type="text" class="search-field" placeholder="Search flowers...">
+                        <input type="text" class="search-field" id="search-field-input" placeholder="Search flowers...">
                         <div class="search-btn">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_114_108)">
@@ -47,12 +47,12 @@
             <section id="products">
                 <div class="container-fluid">
                     <div class="inner_content">
-                        <div class="block-title">
-                            <h1 class="title">Colorful New Arrivals</h1>
-                        </div>
+{#                        <div class="block-title">#}
+{#                            <h1 class="title">Colorful New Arrivals</h1>#}
+{#                        </div>#}
                          <div class="row">
                             {% for bouquet in bouquets %}
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3" id="search-item">
                                     <div class="card border-0">
                                         <div class="product-img">
                                             <img src="{{ bouquet.image.url }}" alt="">

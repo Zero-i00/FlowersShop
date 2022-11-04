@@ -29,8 +29,8 @@ html, body {
 }
 
 #header {
-    background: #F3FFFC;
-    margin-bottom: 2%;
+    /*background: #F3FFFC;*/
+    margin-bottom: 5%;
 }
 
 #header .inner_content {
@@ -54,9 +54,9 @@ html, body {
 #header .inner_content .search {
     width: 70%;
     display: flex;
-    background: #F3FFFC;
+    /*background: #F3FFFC;*/
     padding: 1% 0;
-    margin: 1% 2%;
+    margin: 2%;
 }
 
 #header .inner_content .search .search-field {
@@ -91,10 +91,10 @@ html, body {
     font-size: 30px;
     line-height: 36px;
     /* identical to box height */
-
+    margin: 5% 0;
     letter-spacing: 0.3px;
 
-    color: #171616;
+    color: #004F44;
 
 }
 
