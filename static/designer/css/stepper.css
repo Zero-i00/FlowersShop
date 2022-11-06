@@ -1,0 +1,40 @@
+
+.c-stepper__item {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 4rem;
+}
+
+.c-stepper__item:before {
+    --size: 3rem;
+    content: "";
+    position: relative;
+    z-index: 1;
+    flex: 0 0 var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: lightgrey;
+}
+
+.c-stepper__item:not(:last-child):after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(1.5rem);
+    width: 2px;
+    background-color: #e0e0e0;
+}
+
+.c-stepper {
+    --size: 3rem;
+    --spacing: 0.5rem;
+}
+
+.c-stepper__item:not(:last-child):after {
+    top: calc(var(--size) + var(--spacing));
+    transform: translateX(calc(var(--size) / 2));
+    bottom: var(--spacing);
+}

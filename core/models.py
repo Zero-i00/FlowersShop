@@ -27,7 +27,6 @@ class Bouquet(models.Model):
     quantity = models.PositiveSmallIntegerField(default=0)
     in_stock = models.BooleanField('В наличии', default=False)
 
-
     def __str__(self):
         return self.title
 
@@ -38,6 +37,37 @@ class Bouquet(models.Model):
         verbose_name = 'Букет'
         verbose_name_plural = 'Букеты'
 
+class Wrapper(models.Model):
+    title = models.CharField('Название', max_length=20)
+    image = models.ImageField('Изображение', upload_to='wrapper/', validators=[FileExtensionValidator(allowed_extensions=['png', 'jpg'])])
+    price = models.PositiveIntegerField('Цена', default=0)
+    in_stock = models.BooleanField('В наличии', default=False)
+
+    def __str__(self):
+        return self.title
+
+    def __repr__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Обёртка'
+        verbose_name_plural = 'Обёртки'
 
 
+class Ribbon(models.Model):
+    title = models.CharField('Название', max_length=20)
+    material = models.CharField('Материал', max_length=20)
+    image = models.ImageField('Изображение', upload_to='wrapper/', validators=[FileExtensionValidator(allowed_extensions=['png', 'jpg'])])
+    price = models.PositiveIntegerField('Цена', default=0)
+    in_stock = models.BooleanField('В наличии', default=False)
+
+    def __str__(self):
+        return f'{self.title}({self.material})'
+
+    def __repr__(self):
+        return f'{self.title}({self.material})'
+
+    class Meta:
+        verbose_name = 'Лента'
+        verbose_name_plural = 'Ленты'
 

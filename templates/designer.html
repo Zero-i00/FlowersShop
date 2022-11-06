@@ -1,10 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
-</body>
-</html>
+{% block css %}
+    <link rel="stylesheet" href="{% static 'designer/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'designer/css/adaptive.css' %}">
+    <link rel="stylesheet" href="{% static 'designer/css/stepper.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+{% endblock %}
+
+{% block title %}
+    <title>Flower Designer</title>
+{% endblock %}
+
+
+{% block content %}
+    <body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="container-fluid">
+                <div class="inner_content">
+                    <div class="title">
+                        <a href="/">Flower Go</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <section id="designer">
+                <div class="container-fluid">
+                    <div class="inner_content">
+                        <ol class="c-stepper">
+                            <li class="c-stepper__item">
+                                <div class="c-stepper__content">
+                                    <h3 class="c-stepper__title">Choose flowers</h3>
+                                    <div class="card-group">
+                                        {% for flower in flowers %}
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card shadow border-0">
+                                                    <img class="card-img-top" src="{{ flower.image.url }}" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="info">
+                                                            <h5 class="card-title title">{{ flower.title }}</h5>
+                                                            <h5 class="card-title price">{{ flower.price }}₽</h5>
+                                                        </div>
+                                                        <p class="card-text">{{ flower.description }}</p>
+                                                        <div class="v-counter">
+                                                            <input type="button" class="minusBtn" value="-" />
+                                                            <input type="text" size="25" value="1" class="count" />
+                                                            <input type="button" class="plusBtn" value="+" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="c-stepper__item">
+                                <div class="c-stepper__content">
+                                    <h3 class="c-stepper__title">Choose wrapper</h3>
+                                    <div class="card-group">
+                                        {% for wrapper in wrappers %}
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card shadow border-0">
+                                                    <img class="card-img-top" src="{{ wrapper.image.url }}" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="info">
+                                                            <h5 class="card-title title">{{ wrapper.title }}</h5>
+                                                            <h5 class="card-title price">{{ wrapper.price }}₽</h5>
+                                                        </div>
+                                                        <div class="v-counter">
+                                                            <input type="button" class="minusBtn" value="-" />
+                                                            <input type="text" size="25" value="1" class="count" />
+                                                            <input type="button" class="plusBtn" value="+" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="c-stepper__item">
+                                <div class="c-stepper__content">
+                                    <h3 class="c-stepper__title">Choose wrapper</h3>
+                                    <div class="card-group">
+                                        {% for ribbon in ribbons %}
+                                            <div class="col-md-4 mb-4">
+                                                <div class="card shadow border-0">
+                                                    <img class="card-img-top" src="{{ ribbon.image.url }}" alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="info">
+                                                            <h5 class="card-title title">{{ ribbon.title }}</h5>
+                                                            <h5 class="card-title price">{{ ribbon.price }}₽</h5>
+                                                        </div>
+                                                        <div class="v-counter">
+                                                            <input type="button" class="minusBtn" value="-" />
+                                                            <input type="text" size="25" value="1" class="count" />
+                                                            <input type="button" class="plusBtn" value="+" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Other steps -->
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer id="footer">
+            <div class="container-fluid">
+                <div class="inner_content">
+                    <div class="navigation">
+                        <h1 class="repeat-offer">Repeat offer</h1>
+                        <div class="f-counter" id="repeat-offer">
+                            <input type="button" class="minusBtn" value="-" />
+                            <input type="text" size="25" value="1" class="count" />
+                            <input type="button" class="plusBtn" value="+" />
+                        </div>
+                        <button class="continue-btn" type="button" data-toggle="modal" data-target="#contactModal">
+                            Continue
+                        </button>
+
+                        <div class="modal fade" id="contactModal" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <form method="post" action="" role="form" id="contactForm">
+                                        <div class="modal-body m-4">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <button type="button" class="close secondary" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h5 class="modal-title" id="exampleModalLabel">Оставить заявку</h5>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="full_name" class="col-form-label">Полное Имя</label>
+                                                {{ contact_form.full_name }}
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address" class="col-form-label">Адрес</label>
+                                                {{ contact_form.address }}
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="email" class="col-form-label">Почта</label>
+                                                        {{ contact_form.email }}
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="phone" class="col-form-label">Номер телефона</label>
+                                                        {{ contact_form.phone }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">Пожелания</label>
+                                                <textarea class="form-control" id="message-text">{{ contact_form.wishes }}</textarea>
+                                            </div>
+                                            <div class="btn-send">
+                                                <button type="submit" id="send-form" class="send btn-success d-flex justify-content-between float-right mt-5 mb-3">
+                                                    Отправить
+                                                    <svg width="18" height="18" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2.50281 14.0609L30.4592 14.0609L18.2455 3.65254C17.2694 2.82072 17.2694 1.45568 18.2455 0.623863C19.2216 -0.207957 20.7983 -0.207956 21.7744 0.623863L38.2679 14.6795C39.244 15.5113 39.244 16.855 38.2679 17.6868L21.7744 31.7424C20.7983 32.5743 19.2216 32.5743 18.2455 31.7424C17.2694 30.9106 17.2694 29.5669 18.2455 28.7351L30.4592 18.3267L2.50281 18.3267C1.12627 18.3267 2.36053e-06 17.3669 2.45875e-06 16.1938C2.55698e-06 15.0207 1.12627 14.0609 2.50281 14.0609Z" fill="white"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat quis imperdiet sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat quis imperdiet sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat quis imperdiet sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat quis imperdiet sodales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </body>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'designer/js/counter.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+

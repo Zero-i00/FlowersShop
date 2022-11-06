@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'jquery',
 
     'core',
+    'designer',
 ]
 
 MIDDLEWARE = [
